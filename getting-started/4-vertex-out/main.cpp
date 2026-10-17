@@ -1,5 +1,5 @@
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
 #include <gld/gld.h>
 
 #include <iostream>
@@ -13,10 +13,10 @@ int main() {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE)
 #endif
 
-  glfwSetErrorCallback([](int error_code, const char *description) {
-    std::cout << "GLFW ERROR " << error_code << ": " << description
-              << std::endl;
-  });
+      glfwSetErrorCallback([](int error_code, const char *description) {
+        std::cout << "GLFW ERROR " << error_code << ": " << description
+                  << std::endl;
+      });
 
   GLFWwindow *window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {
@@ -65,15 +65,14 @@ int main() {
     }
   }
 
-  const char *fragmentShaderSource =
-      "#version 330 core\n"
-      "out vec4 FragColor;\n"
-      "in vec4 vertexColor;\n"
-      "\n"
-      "void main()\n"
-      "{\n"
-      "    FragColor = vertexColor;\n"
-      "}";
+  const char *fragmentShaderSource = "#version 330 core\n"
+                                     "out vec4 FragColor;\n"
+                                     "in vec4 vertexColor;\n"
+                                     "\n"
+                                     "void main()\n"
+                                     "{\n"
+                                     "    FragColor = vertexColor;\n"
+                                     "}";
 
   int fragmentShader;
   fragmentShader = gldCreateShader(GL_FRAGMENT_SHADER);

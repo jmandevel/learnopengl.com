@@ -59,8 +59,8 @@ int main() {
   vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   try {
-    vShaderFile.open(CONTENT_SOURCE_DIR "texture.vs.glsl");
-    fShaderFile.open(CONTENT_SOURCE_DIR "texture.fs.glsl");
+    vShaderFile.open(CONTENT_SOURCE_DIR "colored-texture.vs.glsl");
+    fShaderFile.open(CONTENT_SOURCE_DIR "colored-texture.fs.glsl");
     std::stringstream vShaderStream, fShaderStream;
     vShaderStream << vShaderFile.rdbuf();
     fShaderStream << fShaderFile.rdbuf();
@@ -121,11 +121,11 @@ int main() {
   glGenTextures(1, &texture);
 
   float vertices[] = {
-      // positions          // colors           // texture coords
-      0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // top right
-      0.5f,  -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // bottom right
-      -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
-      -0.5f, 0.5f,  0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f  // top left
+      // positions   // texture coords
+      0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, // top right
+      0.5f,  -0.5f, 1.0f, 0.0f, 1.0f, 0.0f, // bottom right
+      -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
+      -0.5f, 0.5f,  1.0f, 0.0f, 0.0f, 1.0f  // top left
   };
   unsigned int indices[] = {
       // note that we start from 0!
@@ -151,12 +151,9 @@ int main() {
   gldVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float),
                          (void *)0);
   gldEnableVertexAttribArray(0);
-  gldVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float),
-                         (void *)(3 * sizeof(float)));
-  gldEnableVertexAttribArray(1);
-  gldVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float),
+  gldVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float),
                          (void *)(6 * sizeof(float)));
-  gldEnableVertexAttribArray(2);
+  gldEnableVertexAttribArray(1);
 
   unsigned int texture1, texture2;
   gldGenTextures(1, &texture1);

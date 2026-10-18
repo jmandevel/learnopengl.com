@@ -1,4 +1,5 @@
 add_subdirectory(glad)
+add_subdirectory(stb)
 
 Include(FetchContent)
 FetchContent_Declare(glfw

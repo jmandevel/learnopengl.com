@@ -5,5 +5,5 @@ target_link_libraries(6-shader-class
         glad
         glfw
         gld
-        getting-started-shaders
+        content
 )

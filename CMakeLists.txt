@@ -4,4 +4,5 @@ project(learnopengl)
 
 add_subdirectory(vendor)
 
+add_subdirectory(content)
 add_subdirectory(getting-started)

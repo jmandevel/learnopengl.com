@@ -51,8 +51,8 @@ int main() {
                                    gldViewport(0, 0, width, height);
                                  });
 
-  Shader shader(SHADER_SOURCE_DIR "flat.vs.glsl",
-                SHADER_SOURCE_DIR "flat.fs.glsl");
+  Shader shader(CONTENT_SOURCE_DIR "flat.vs.glsl",
+                CONTENT_SOURCE_DIR "flat.fs.glsl");
 
   float vertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
 

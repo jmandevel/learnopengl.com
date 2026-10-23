@@ -155,7 +155,7 @@ int main() {
                          (void *)(6 * sizeof(float)));
   gldEnableVertexAttribArray(1);
 
-  unsigned int texture1, texture2;
+  unsigned int texture1;
   gldGenTextures(1, &texture1);
   gldBindTexture(GL_TEXTURE_2D, texture1);
   gldTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

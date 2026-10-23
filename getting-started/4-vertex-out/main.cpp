@@ -138,6 +138,8 @@ int main() {
     gldUseProgram(shaderProgram);
     gldBindVertexArray(VAO);
     gldDrawArrays(GL_TRIANGLES, 0, 3);
+    gldBindVertexArray(0);
+    gldUseProgram(0);
 
     glfwSwapBuffers(window);
     glfwPollEvents();

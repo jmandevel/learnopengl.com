@@ -187,11 +187,18 @@ int main() {
     gldClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     gldClear(GL_COLOR_BUFFER_BIT);
 
+    gldActiveTexture(GL_TEXTURE0);
+    gldBindTexture(GL_TEXTURE_2D, texture1);
+
     gldUseProgram(program);
     gldUniform1i(gldGetUniformLocation(program, "ourTexture"), 0);
     gldBindVertexArray(VAO);
     gldDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     gldBindVertexArray(0);
+    gldUseProgram(0);
+
+    gldActiveTexture(GL_TEXTURE0);
+    gldBindTexture(GL_TEXTURE_2D, 0);
 
     glfwSwapBuffers(window);
     glfwPollEvents();

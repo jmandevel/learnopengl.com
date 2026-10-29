@@ -171,7 +171,7 @@ int main() {
   {
     unsigned char *data =
         stbi_load(CONTENT_SOURCE_DIR "sir-arowhun-of-jenn-kellon.png", &width,
-                  &height, &nrChannels, 0);
+                  &height, &nrChannels, 4);
     if (data) {
       gldTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
                     GL_UNSIGNED_BYTE, data);
@@ -189,7 +189,7 @@ int main() {
   gldTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   {
     unsigned char *data = stbi_load(CONTENT_SOURCE_DIR "sweeper.png", &width,
-                                    &height, &nrChannels, 0);
+                                    &height, &nrChannels, 4);
     if (data) {
       gldTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
                     GL_UNSIGNED_BYTE, data);

@@ -9,6 +9,11 @@
 #include <sstream>
 
 int main() {
+  glfwSetErrorCallback([](int error_code, const char *description) {
+    std::cout << "GLFW ERROR " << error_code << ": " << description
+              << std::endl;
+  });
+
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -17,10 +22,6 @@ int main() {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE)
 #endif
 
-      glfwSetErrorCallback([](int error_code, const char *description) {
-        std::cout << "GLFW ERROR " << error_code << ": " << description
-                  << std::endl;
-      });
 
   GLFWwindow *window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {

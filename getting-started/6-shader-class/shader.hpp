@@ -70,7 +70,7 @@ public:
       char infoLog[512];
       gldGetProgramiv(this->ID, GL_LINK_STATUS, &success);
       if (!success) {
-        gldGetProgramInfoLog(fragment, 512, NULL, infoLog);
+        gldGetProgramInfoLog(this->ID, 512, NULL, infoLog);
         std::cout << "ERROR::PROGRAM::LINK\n" << infoLog << std::endl;
       }
     }

@@ -111,7 +111,7 @@ int main() {
     char infoLog[512];
     gldGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
-      gldGetProgramInfoLog(fragmentShader, 512, NULL, infoLog);
+      gldGetProgramInfoLog(programShader, 512, NULL, infoLog);
       std::cout << "ERROR::PROGRAM::LINK\n" << infoLog << std::endl;
     }
   }

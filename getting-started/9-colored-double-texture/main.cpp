@@ -110,7 +110,7 @@ int main() {
     char infoLog[512];
     gldGetProgramiv(program, GL_LINK_STATUS, &success);
     if (!success) {
-      gldGetProgramInfoLog(fragment, 512, NULL, infoLog);
+      gldGetProgramInfoLog(program, 512, NULL, infoLog);
       std::cout << "ERROR::PROGRAM::LINK\n" << infoLog << std::endl;
     }
   }
